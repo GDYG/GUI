@@ -143,7 +143,7 @@ async function main() {
     // const nextVersion = await prompt();
     // const startTime = Date.now();
     // =================== 更新版本号 ===================
-    // await updateVersion(nextVersion);
+    await updateVersion(currentVersion);
     // =================== 更新changelog ===================
     // await generateChangelog();
     // =================== 代码推送git仓库 ===================
