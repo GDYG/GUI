@@ -1,7 +1,7 @@
 /* eslint-disable  import/no-extraneous-dependencies,@typescript-eslint/camelcase, no-console */
 // import inquirer from 'inquirer';
-// import fs from 'fs';
-// import path from 'path';
+import fs from 'fs';
+import path from 'path';
 import child_process from 'child_process';
 import util from 'util';
 import chalk from 'chalk';
@@ -16,8 +16,19 @@ const run = async (command: string) => {
   await exec(command);
 };
 
-const currentVersion = pkg.version;
-console.log(currentVersion)
+let currentVersion = pkg.version;
+let versionArr = currentVersion.split('.').map(Number)
+if (versionArr[2] < 20) {
+  versionArr[2] += 1
+} else if (versionArr[1] < 10) {
+  versionArr[2] = 0
+  versionArr[1] += 1
+} else {
+  versionArr[2] = 0
+  versionArr[1] = 0
+  versionArr[0] += 1
+}
+currentVersion = versionArr.join('.')
 
 // const getNextVersions = () => ({
 //   major: semverInc(currentVersion, 'major'),
@@ -66,13 +77,13 @@ console.log(currentVersion)
  * 更新版本号
  * @param nextVersion 新版本号
  */
-// async function updateVersion(nextVersion: string) {
-//   pkg.version = nextVersion;
-//   timeLog('修改package.json版本号', 'start');
-//   await fs.writeFileSync(path.resolve(__dirname, './../package.json'), JSON.stringify(pkg));
-//   await run('npx prettier package.json --write');
-//   timeLog('修改package.json版本号', 'end');
-// }
+async function updateVersion(nextVersion: string) {
+  pkg.version = nextVersion;
+  // timeLog('修改package.json版本号', 'start');
+  await fs.writeFileSync(path.resolve(__dirname, './../package.json'), JSON.stringify(pkg));
+  await run('npx prettier package.json --write');
+  // timeLog('修改package.json版本号', 'end');
+}
 
 /**
  * 生成CHANGELOG
@@ -93,9 +104,9 @@ console.log(currentVersion)
 //   await run('git push');
 //   timeLog('推送代码至git仓库', 'end');
 // }
-async function push() {
+async function push(nextVersion: string) {
   await run('git add .');
-  await run(`git commit -m "ww" -n`);
+  await run(`git commit -m "v${nextVersion}" -n`);
   await run('git push');
 }
 
@@ -136,14 +147,14 @@ async function main() {
     // =================== 更新changelog ===================
     // await generateChangelog();
     // =================== 代码推送git仓库 ===================
-    await push();
+    await push(currentVersion);
     // await push(nextVersion);
     // =================== 组件库打包 ===================
     await build();
     // =================== 发布至npm ===================
     await publish();
     // =================== 打tag并推送至git ===================
-    // await tag(nextVersion);
+    await tag(currentVersion);
     // console.log(`✨ 发布流程结束 共耗时${((Date.now() - startTime) / 1000).toFixed(3)}s`);
   } catch (error) {
     console.log('💣 发布失败，失败原因：', error);
