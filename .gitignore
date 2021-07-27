@@ -4,4 +4,10 @@ node_modules
 
 doc-site
 
+lib
+
+esm
+
 demo
+
+tests
