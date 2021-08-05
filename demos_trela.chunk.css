@@ -1,1 +1,1 @@
-.gnt-alert{padding:20px;background:#fff;border-radius:3px;color:#fff}
+.gnt-alert{padding:20px;background:#fff;border-radius:3px;color:#fff;overflow:hidden}.gnt-alert-prev{display:inline-block;width:14px;height:14px;margin-right:10px;vertical-align:text-top}.gnt-alert-close{width:14px;height:14px;vertical-align:text-top;float:right;cursor:pointer;transition:all .1s linear}.gnt-alert-close:hover{opacity:.88}
