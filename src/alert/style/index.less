@@ -1,8 +1,29 @@
-@popupPrefix: happy-alert;
+@popupPrefix: gnt-alert;
+@alertPrefix: gnt-alert-prev;
+@alertNextfix: gnt-alert-close;
 
 .@{popupPrefix} {
   padding: 20px;
   background: white;
   border-radius: 3px;
   color: white;
+  overflow: hidden;
+}
+.@{alertPrefix} {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  vertical-align: text-top;
+}
+.@{alertNextfix} {
+  width: 14px;
+  height: 14px;
+  vertical-align: text-top;
+  float: right;
+  cursor: pointer;
+  transition: all 0.1s linear;
+  &:hover {
+    opacity: 0.88;
+  }
 }
