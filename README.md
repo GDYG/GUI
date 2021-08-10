@@ -11,5 +11,7 @@
 
 点击查看[文档地址](https://gdyg.github.io/GUI)
 
+## 作者
 
+> gdyg
 
