@@ -17,7 +17,7 @@ const prefixClsPrev = 'gnt-alert-prev';
 const closeCls = 'gnt-alert-close';
 
 const kinds: KindMap = {
-  info: '#5352ED',
+  info: '#7D4CDB',
   positive: '#6ECE24',
   negative: '#FF4757',
   warning: '#FFA502',
