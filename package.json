@@ -4,7 +4,7 @@
   "description": "用于react的业务组件库",
   "main": "lib/index.js",
   "module": "esm/index.js",
-  "typings": "lib/index.d.ts",
+  "typings": "types/index.d.ts",
   "scripts": {
     "commit": "git-cz",
     "dev": "dumi dev",
@@ -102,8 +102,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.14.8",
+    "antd": "^4.16.11",
     "classnames": "^2.3.1",
     "cpr": "^3.0.1",
+    "gulp-imagemin": "^8.0.0",
     "prop-types": "^15.7.2",
     "semver": "^7.3.5",
     "vfile-message": "^3.0.1"

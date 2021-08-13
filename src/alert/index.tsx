@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import t from 'prop-types';
+import './style/index.less'
 export interface AlertProps {
 /**
    * @description       Alert 的类型
@@ -17,10 +18,10 @@ const prefixClsPrev = 'gnt-alert-prev';
 const closeCls = 'gnt-alert-close';
 
 const kinds: KindMap = {
-  info: '#7D4CDB',
-  positive: '#6ECE24',
-  negative: '#FF4757',
-  warning: '#FFA502',
+  info: 'rgba(125, 76, 219, .8)',
+  positive: 'rgba(110, 206, 36, .8)',
+  negative: 'rgba(255, 71, 87, .8)',
+  warning: 'rgba(255, 165, 2, .8)',
 };
 const Alert: React.FC<AlertProps> = ({ children, closed = false, icon = '', kind = 'info', ...rest }) => {
   const [show, setShow] = useState(true)

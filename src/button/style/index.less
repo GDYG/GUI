@@ -1,6 +1,116 @@
 @Button: gnt-button-cls;
+@Button-primary: gnt-button-primary;
+@Button-dashed: gnt-button-dashed;
+@Button-link: gnt-button-link;
+@Button-text: gnt-button-text;
 
 .@{Button} {
-    padding: 20px;
+    display: inline-block;
+    border-color: #7D4CDB;
     background: #7D4CDB;
+    border-radius: 3px;
+    margin-right: 8px;
+    margin-bottom: 12px;
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid #7D4CDB;
+    box-shadow: 0 2px #00000004;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 32px;
+    touch-action: manipulation;
+    padding: 4px 15px;
+    font-size: 14px;
+    color: #fff;
+    overflow: hidden;
+    &:hover {
+        opacity: 0.88;
+    }
+    position: relative;
+    &::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        transform: scale(10, 10);
+        opacity: 0;
+        transition: transform .3s, opacity .5s;
+    }
+    &:active:after {
+        transform: scale(0, 0);
+        opacity: .3;
+        transition: 0s;
+    }
+}
+
+.@{Button-text} {
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    
+}
+.@{Button-link} {
+    color: rgba(125, 76, 219, 1);
+    text-decoration: none;
+    &:active {
+        color: rgb(247, 0, 255);
+    }
+    padding: 4px 15px;
+}
+.@{Button-dashed} {
+    border: 1px dashed #bbb;
+    background-color:rgba(125, 76, 219, 0);
+    color: #888;
+    padding: 4px 15px;
+    &:hover {
+        border: 1px dashed #7D4CDB;
+        color: #7D4CDB;
+    }
+}
+img {
+    width: 12px;
+    height: 12px;
+    object-fit: cover;
+}
+.load {
+    width: 14px;
+    height: 14px;
+    margin-right: 3px;
+    vertical-align: text-top;
+    animation: rotate 2s linear infinite;
+    transition: stroke-width 0.4s;
+}
+.loading {
+    stroke: #fff;
+    stroke-width: 1;
+    fill: none;
+ }
+ @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+.gnt-button-cls-prev {
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-right: 3px;
 }

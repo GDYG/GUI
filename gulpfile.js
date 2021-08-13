@@ -4,6 +4,7 @@ const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
 const cssnano = require('gulp-cssnano');
 const through2 = require('through2');
+const imagemin = require('gulp-imagemin')
 
 const paths = {
   dest: {
@@ -12,6 +13,7 @@ const paths = {
     dist: 'dist', // umd文件存放的目录名 - 暂时不关心
   },
   styles: 'src/**/*.less', // 样式文件路径 - 暂时不关心
+  imgUrl: 'src/assets/images/*.*',
   scripts: [
     'src/**/*.{ts,tsx}',
     '!src/**/demo/*.{ts,tsx}',
@@ -95,8 +97,20 @@ function less2css() {
       .pipe(gulp.dest(paths.dest.esm));
 }
 
+function image2in() {
+  return gulp.src(paths.imgUrl)
+    .pipe(imagemin({
+      optimizationLevel: 5, //类型：Number  默认：3  取值范围：0-7（优化等级）
+      progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片
+      interlaced: true, //类型：Boolean 默认：false 隔行扫描gif进行渲染
+      multipass: true //类型：Boolean 默认：false 多次优化svg直到完全优化
+    }))
+    .pipe(gulp.dest(paths.dest.lib))
+    .pipe(gulp.dest(paths.dest.esm));
+}
+
 // 整体并行执行任务
-const build = gulp.parallel(buildScripts, copyLess, less2css);
+const build = gulp.parallel(buildScripts, copyLess, less2css, image2in);
 
 exports.build = build;
 
