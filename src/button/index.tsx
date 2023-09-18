@@ -3,10 +3,6 @@ import t from 'prop-types'
 import classnames from 'classnames'
 import './style/index.less'
 export interface ButtonProps {
-    /**
-     * @description       Button 的类型
-     * @default           'primary'
-    */
     type?: 'primary' | 'dashed' | 'link' | 'text',
     loading?: boolean,
     onClick?: MouseEventHandler,

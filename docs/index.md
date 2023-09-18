@@ -5,7 +5,7 @@ hero:
   desc: React + TypeScript + Gulp + Dumi + Rollup打造的UI组件库
   actions:
     - text: 开始使用
-      link: /alert
+      link: /component
 icon: https://img1.baidu.com/it/u=2480604110,4008147240&fm=26&fmt=auto&gp=0.jpg,
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png

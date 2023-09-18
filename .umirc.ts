@@ -1,7 +1,7 @@
 import { defineConfig } from 'dumi';
 // 此处更换为自己的仓库名
-let base = '/GUI'; // 此处更换为自己的仓库名
-let publicPath = '/GUI/'; // 此处更换为自己的仓库名
+let base: string | undefined = '/GUI'; // 此处更换为自己的仓库名
+let publicPath: string | undefined = '/GUI/'; // 此处更换为自己的仓库名
 
 if (process.env.SITE_BUILD_ENV === 'PREVIEW') {
   base = undefined;

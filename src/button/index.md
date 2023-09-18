@@ -1,10 +1,7 @@
 ---
 title: Button 按钮
-group:
-  title: Button 按钮
 nav: 
-    title: 组件
-    path: /alert
+    path: '/component' 
 ---
 
 # Button 按钮
@@ -29,7 +26,14 @@ nav:
 
 <code src="./demo/previcon.tsx" title='前缀图标' desc="添加 icon 即可自定义按钮图标"></code>
 
-<API src="./index.tsx"></API>
+## API
+
+|   名称    |     描述     |      类型     |    默认值     |
+|  -------   |    ------  | ------------ | ------------ | 
+|   type |   button样式   |  'primary' \| 'dashed' \| 'link' \| 'text'  | 'primary' |
+|   loading | 是否是加载态  |   boolean   |   false   |
+|   onClick | 点击事件  |   MouseEventHandler  |   --   |
+|   icon  |   前缀图标   |  React.ReactNode | --   |
 
 
 

@@ -3,7 +3,7 @@ import t from 'prop-types';
 import './style/index.less'
 export interface AlertProps {
 /**
-   * @description       Alert 的类型
+   * @description       前缀图标
    * @default           'info'
 */
   icon?: React.ReactNode,

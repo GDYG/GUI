@@ -1,8 +1,7 @@
 ---
 title: Alert 警告提示
 nav:
-  title: 组件
-  path: /alert
+  path: /component
 ---
 
 # Alert 警告提示
@@ -25,7 +24,10 @@ nav:
 ### 自定义图标
 <code src="./demo/basicIcon.tsx" title='自定义前缀图标' desc='支持自定义图标, 可以是图片、svg、canvas等'></code>
 
+## API
 
-
-<API src="./index.tsx"></API>
-
+|   名称    |     描述     |      类型     |    默认值     |
+|  -------   |    ------  | ------------ | ------------ | 
+|   icon |   前缀图标   |  React.ReactNode | -- |
+|   closed |  是否可关闭  |   boolean   |   false   |
+|   kind | 类型  |   'info' \| 'positive' \| 'negative' \| 'warning'  |   'info'   |
