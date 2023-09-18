@@ -1,6 +1,6 @@
 {
   "name": "gnt-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "用于react的业务组件库",
   "main": "lib/index.js",
   "module": "esm/index.js",
